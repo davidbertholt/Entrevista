@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  angular-service:
+    container_name: angularcontainer
+    build: ./heroes-app
+    volumes:
+      - './heroes-app:/usr/src/app'
+    ports:
+      - '4200:4200'
+    command: >
+      bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+  json-server:
+    image: vimagick/json-server
+    command: -H 0.0.0.0 -p 3000 -w db.json
+    ports:
+      - "3000:3000"
+    volumes:
+      - './heroes-api/db.json:/usr/src/data/db.json'
+    restart: always
