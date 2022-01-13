@@ -11,9 +11,10 @@ services:
       bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
   json-server:
     image: vimagick/json-server
-    command: -H 0.0.0.0 -p 3000 -w db.json
+    # se setea el delay en -d
+    command: -H 0.0.0.0 -p 3000 -w db.json -d 3000
     ports:
       - "3000:3000"
     volumes:
-      - './heroes-api/db.json:/usr/src/data/db.json'
+      - './heroes-api/db.json:/data/db.json'
     restart: always
