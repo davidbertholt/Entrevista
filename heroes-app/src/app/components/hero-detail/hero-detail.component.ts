@@ -26,7 +26,7 @@ export class HeroDetailComponent implements OnInit {
     this.getHero();
   }
 
-  getHero () {
+  getHero = () => {
     this.rutaActiva.params.subscribe(
       (params: Params) => {
         this.idHero = params;

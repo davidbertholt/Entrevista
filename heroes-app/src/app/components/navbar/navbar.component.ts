@@ -9,7 +9,7 @@ import { HeroService } from 'src/app/services/hero/hero.service';
 export class NavbarComponent {
   constructor(private heroService: HeroService) { }
 
-  onKeyUp(x: any) {
+  onKeyUp = (x: any) => {
     this.heroService.setFilteredHeroes(x.target.value);
   }
 }

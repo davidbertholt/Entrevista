@@ -37,12 +37,12 @@ export class HeroListComponent implements OnInit {
     this.getHeroes();
   }
 
-  getHeroes(): void {
+  getHeroes = () => {
     this.heroService.getHeroes();
     this.heroService.heroes$.subscribe(data => this.heroes = data);
   }
 
-  openModal(hero: IHero) {
+  openModal = (hero: IHero) => {
     const dialogRef = this.dialog.open(HeroModalComponent, {
       width: '350px',
       data: hero,
@@ -58,7 +58,7 @@ export class HeroListComponent implements OnInit {
     });
   }
 
-  deleteSuperhero(hero: IHero) {
+  deleteSuperhero = (hero: IHero) => {
     this.heroService.deleteHero(hero);
     this._snackBar.open(`${hero.superhero} eliminado`, 'OK', {
       duration: 3000
@@ -67,16 +67,16 @@ export class HeroListComponent implements OnInit {
 
   }
 
-  getCountElements() {
+  getCountElements = () => {
     return this.heroService.countElements$;
   }
 
-  setPage(page: any) {
+  setPage = (page: any) => {
     this.heroService.setPag(page);
     this.getHeroes();
   }
 
-  goToDetail(id: number) {
+  goToDetail = (id: number) => {
     this.router.navigateByUrl(`detail/${id}`);
   }
 }

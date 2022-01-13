@@ -16,7 +16,7 @@ export class AddSuperheroComponent {
   constructor(
     public dialog: MatDialog) { }
 
-  openModal() {
+  openModal = () => {
     const dialogRef = this.dialog.open(HeroModalComponent, {
       width: '350px',
     });

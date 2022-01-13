@@ -38,7 +38,7 @@ export class HeroModalComponent implements OnInit{
       this.formHero.setValue(this.data);
     }
   }
-  onSubmit() {
+  onSubmit = () => {
     const hero: IHero = this.formHero.value;
     if(!!this.data) {
       this.heroService.setHero(hero);
@@ -48,7 +48,7 @@ export class HeroModalComponent implements OnInit{
     this.dialogRef.close("El superheroe fue guardado correctamente");
   }
 
-  deleteSuperhero() {
+  deleteSuperhero = () => {
     const hero: IHero = this.formHero.value;
     this.heroService.deleteHero(hero);
     this.dialogRef.close("El elemento fue eliminado correctamente");
