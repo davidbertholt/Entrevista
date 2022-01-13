@@ -1,0 +1,31 @@
+.list {
+    min-width: 100%;
+}
+
+.mat-column-id {
+    width: 5%;
+}
+
+.mat-column-superhero {
+    width: 10%;
+}
+
+.mat-column-publisher {
+    width: 10%;
+}
+
+.mat-column-alterEgo {
+    width: 10%;
+}
+
+.mat-column-firstAppearance {
+    width: 10%;
+}
+
+.mat-column-characters {
+    width: 20%;
+}
+
+.mat-column-acciones {
+    width: 10%;
+}

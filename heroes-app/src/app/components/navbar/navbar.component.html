@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-row">
+        <button
+        mat-button
+        routerLink="/home"
+        >
+            <h1>
+                Heroes Page
+            </h1>
+        </button>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Search" (keyup)="onKeyUp($event)" >
+        </mat-form-field>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>{{ data ? 'Editar' : 'Crear'}} superhero</h1>
+<form [formGroup]="formHero" class="form">
+    <mat-form-field appearance="fill">
+        <mat-label>Superhero</mat-label>
+        <input matInput appMayusculas type="text" class="form-control" name="superhero" id="superhero" required formControlName="superhero">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Publisher</mat-label>
+        <input matInput type="text" class="form-control" name="publisher" id="publisher" required formControlName="publisher">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>AlterEgo</mat-label>
+        <input matInput type="text" class="form-control" name="alterEgo" id="alterEgo" required formControlName="alterEgo">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>First appearance</mat-label>
+        <input matInput type="text" class="form-control" name="firstAppearance" id="firstAppearance" required formControlName="firstAppearance">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Characters</mat-label>
+        <input matInput type="text" class="form-control" name="characters" id="characters" required formControlName="characters">
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">{{ data ? 'Edit' : 'Create'}}</button>
+        <button *ngIf="!!data" mat-raised-button color="warn" (click)="deleteSuperhero()">Delete</button>
+    </div>
+
+</form>
