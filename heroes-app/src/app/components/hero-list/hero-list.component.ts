@@ -21,8 +21,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HeroListComponent implements OnInit {
   search = "";
-  countElements = "";
+  countElements = "0";
   pageIndex = 0;
+  page = "1";
+  sizePage = "5";
   heroes: IHero[] = [];
   displayedColumns: string[] = ['id', 'superhero', 'publisher', 'alterEgo', 'firstAppearance', 'characters', 'acciones'];
 
@@ -38,8 +40,17 @@ export class HeroListComponent implements OnInit {
   }
 
   getHeroes = () => {
-    this.heroService.getHeroes();
-    this.heroService.heroes$.subscribe(data => this.heroes = data);
+    this.heroService.getHeroes(this.search, this.page, this.sizePage)
+      .subscribe(res => {
+          this.countElements = res.headers.get('X-Total-Count') || "0";
+          const data = res.body;
+          this.heroes = data;
+        });
+  }
+
+  onKeyUp = (x: any) => {
+    this.search = x.target.value;
+    this.getHeroes();
   }
 
   openModal = (hero: IHero) => {
@@ -67,12 +78,9 @@ export class HeroListComponent implements OnInit {
 
   }
 
-  getCountElements = () => {
-    return this.heroService.countElements$;
-  }
-
   setPage = (page: any) => {
-    this.heroService.setPag(page);
+    this.page = page.pageIndex + 1;
+    this.sizePage = page.pageSize;
     this.getHeroes();
   }
 

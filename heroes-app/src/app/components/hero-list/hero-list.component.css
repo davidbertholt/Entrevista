@@ -29,3 +29,9 @@
 .mat-column-acciones {
     width: 10%;
 }
+
+.mat-form-field {
+    font-size: 14px;
+    width: 350px;
+    margin: 10px;
+}

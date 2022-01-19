@@ -51,6 +51,6 @@ export class HeroModalComponent implements OnInit{
   deleteSuperhero = () => {
     const hero: IHero = this.formHero.value;
     this.heroService.deleteHero(hero);
-    this.dialogRef.close("El elemento fue eliminado correctamente");
+    this.dialogRef.close("El superheroe fue eliminado correctamente");
   }
 }

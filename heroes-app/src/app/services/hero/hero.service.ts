@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // Interface
@@ -13,34 +13,10 @@ export class HeroService {
   urlHero = `${this.url}heroes/`
   responseString: string = "";
 
-  private heroes: Subject<IHero[]> = new Subject<IHero[]>();
-  heroes$ = this.heroes.asObservable();
-
-  private countElements: Subject<string> = new Subject<string>();
-  countElements$ = this.countElements.asObservable()
-
-  private fliterWord: string = "";
-  private actualPage: number = 1;
-  private sizePage: number = 5;
-
   constructor(private httpClient: HttpClient) { }
 
-  setFilteredHeroes(filter: string ) {
-    this.httpClient.get<any>(`${this.urlHero}?superhero_like=${filter}&_page=${this.actualPage}&_limit=${this.sizePage}`, {observe: 'response'})
-      .subscribe((response) => {
-        this.countElements.next(response.headers.get('X-Total-Count') || "");
-        const data = response.body;
-        this.heroes.next(data)
-      })
-  }
-
-  getHeroes() {
-    this.httpClient.get<any>(`${this.urlHero}?superhero_like=${this.fliterWord}&_page=${this.actualPage}&_limit=${this.sizePage}`, {observe: 'response'})
-      .subscribe((response) => {
-        this.countElements.next(response.headers.get('X-Total-Count') || "");
-        const data = response.body;
-        this.heroes.next(data)
-      })
+  getHeroes(search: string = "", page: string = "1", sizePage:string = "5"): Observable<any>{
+    return this.httpClient.get<any>(`${this.urlHero}?superhero_like=${search}&_page=${page}&_limit=${sizePage}`, {observe: 'response'})
   }
 
   getHeroByID(id: number): Observable<IHero> {
@@ -60,10 +36,5 @@ export class HeroService {
   deleteHero(hero: IHero) {
     this.httpClient.delete<any>(`${this.urlHero}${hero.id}`).subscribe(res => this.responseString = res.superhero);
     return this.responseString;
-  }
-
-  setPag(page: any) {
-    this.actualPage = page.pageIndex + 1;
-    this.sizePage = page.pageSize;
   }
 }

@@ -3,3 +3,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+.mat-button {
+    height: 100%;
+}
+.mat-button:hover {
+    opacity: 0.5;
+}
