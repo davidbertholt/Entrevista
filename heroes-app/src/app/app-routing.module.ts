@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent, pathMatch: 'full'},
+  { path: 'list', component: HeroListComponent, pathMatch: 'full'},
   { path: 'detail/:id', component: HeroDetailComponent, pathMatch: 'full'},
-  { path: '**', component: HomePageComponent}
+  { path: '**', component: HeroListComponent}
 ];
 
 @NgModule({

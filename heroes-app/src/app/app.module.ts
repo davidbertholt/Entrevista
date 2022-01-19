@@ -8,7 +8,6 @@ import { AddSuperheroComponent } from './components/add-superhero/add-superhero.
 import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroModalComponent } from './components/modal/modal.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 
@@ -48,7 +47,6 @@ import { MayusculasDirective } from './directives/mayusculas.directive';
     AppComponent,
     HeroDetailComponent,
     HeroListComponent,
-    HomePageComponent,
     HeroModalComponent,
     NavbarComponent,
     MayusculasDirective,

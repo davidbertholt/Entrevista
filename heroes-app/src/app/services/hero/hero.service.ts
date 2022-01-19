@@ -11,7 +11,6 @@ import { IHero } from "../../interfaces/IHero";
 export class HeroService {
   url = 'http://localhost:3000/';
   urlHero = `${this.url}heroes/`
-  responseString: string = "";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,18 +22,15 @@ export class HeroService {
     return this.httpClient.get<any>(`${this.urlHero}${id}`)
   }
 
-  addHero(hero: IHero) {
-    this.httpClient.post<IHero>(`${this.urlHero}`, hero).subscribe(res => this.responseString = res.superhero);
-    return this.responseString;
+  addHero(hero: IHero): Observable<any> {
+    return this.httpClient.post<IHero>(`${this.urlHero}`, hero);
   }
 
-  setHero(hero: IHero) {
-    this.httpClient.put<IHero>(`${this.urlHero}${hero.id}`, hero).subscribe(res => this.responseString = res.superhero);
-    return this.responseString;
+  setHero(hero: IHero): Observable<any> {
+    return this.httpClient.put<IHero>(`${this.urlHero}${hero.id}`, hero);
   }
 
-  deleteHero(hero: IHero) {
-    this.httpClient.delete<any>(`${this.urlHero}${hero.id}`).subscribe(res => this.responseString = res.superhero);
-    return this.responseString;
+  deleteHero(hero: IHero): Observable<any> {
+    return this.httpClient.delete<any>(`${this.urlHero}${hero.id}`);
   }
 }

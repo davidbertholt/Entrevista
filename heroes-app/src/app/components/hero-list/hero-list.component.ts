@@ -70,12 +70,12 @@ export class HeroListComponent implements OnInit {
   }
 
   deleteSuperhero = (hero: IHero) => {
-    this.heroService.deleteHero(hero);
-    this._snackBar.open(`${hero.superhero} eliminado`, 'OK', {
-      duration: 3000
-    });
+    this.heroService.deleteHero(hero).subscribe(res => {
+      this._snackBar.open(`${hero.superhero} fue eliminado correctamente`, 'OK', {
+        duration: 3000
+      });
     this.getHeroes();
-
+    });
   }
 
   setPage = (page: any) => {
