@@ -4,15 +4,15 @@ import { Component, OnInit } from '@angular/core';
 // Interface
 import { IHero } from 'src/app/interfaces/IHero';
 
-// Service
-import { HeroService } from 'src/app/services/hero/hero.service';
-
 // Modal
 import { HeroModalComponent } from '../modal/modal.component';
 
 // Material design
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+
+// Services
+import { AbstractHeroService } from 'src/app/clases/hero.abstract-service';
 
 @Component({
   selector: 'app-hero-list',
@@ -29,7 +29,7 @@ export class HeroListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'superhero', 'publisher', 'alterEgo', 'firstAppearance', 'characters', 'acciones'];
 
   constructor(
-    private heroService: HeroService,
+    public heroService: AbstractHeroService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private router: Router

@@ -1,6 +1,4 @@
-import { IHero } from "../interfaces/IHero"
-
-const heroesMock : any= {
+const heroesArrayMock : any= {
     heroes : [
     {
         "id": 1,
@@ -164,4 +162,4 @@ const heroesMock : any= {
     }
 ]}
 
-export {heroesMock};
+export {heroesArrayMock as heroesMock};

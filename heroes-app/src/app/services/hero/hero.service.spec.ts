@@ -5,7 +5,7 @@ import { HeroService } from './hero.service';
 import { heroesMock } from 'src/app/mocks/heroes.mock';
 import { IHero } from 'src/app/interfaces/IHero';
 
-fdescribe('HeroService', () => {
+describe('HeroService', () => {
   let httpTestingController: HttpTestingController;
   let service: HeroService;
   const urlBase = "http://localhost:3000/heroes/";

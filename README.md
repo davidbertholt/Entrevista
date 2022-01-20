@@ -15,3 +15,9 @@ Steps to change delay image:
 Steps to remove delay image:
 
     - in docker-compose.yml remove flag --d XXXX
+
+Steps to run tests:
+
+    - in app.module.ts remplance production provider for test
+    
+    - in heroes-app/ run the command  ng test

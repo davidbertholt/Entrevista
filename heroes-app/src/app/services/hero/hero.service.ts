@@ -4,11 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 // Interface
 import { IHero } from "../../interfaces/IHero";
+import { AbstractHeroService } from 'src/app/clases/hero.abstract-service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HeroService {
+export class HeroService implements AbstractHeroService {
   url = 'http://localhost:3000/';
   urlHero = `${this.url}heroes/`
 

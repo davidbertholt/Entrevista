@@ -40,6 +40,20 @@ import { LoaderInterceptor } from './services/loader/loader.interceptor';
 
 // Directivas
 import { MayusculasDirective } from './directives/mayusculas.directive';
+import { AbstractHeroService } from './clases/hero.abstract-service';
+
+
+// For test
+import { HeroService } from './services/hero/hero.service';
+import { MockHeroService } from './mocks/heroServiceMock';
+
+const production = [
+  { provide: AbstractHeroService, useClass: HeroService }
+];
+
+const test = [
+  { provide: AbstractHeroService, useClass: MockHeroService }
+];
 
 @NgModule({
   declarations: [
@@ -71,7 +85,10 @@ import { MayusculasDirective } from './directives/mayusculas.directive';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    ...production
+  ],
   bootstrap: [
     AppComponent
   ]
