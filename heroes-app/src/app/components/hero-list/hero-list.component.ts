@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { IHero } from 'src/app/interfaces/IHero';
 
 // Modal
-import { HeroModalComponent } from '../modal/modal.component';
+import { HeroModalComponent } from '../modals/addEdit/modal.component';
 
 // Material design
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 // Services
 import { AbstractHeroService } from 'src/app/clases/hero.abstract-service';
+import { ConfirmModalComponent } from '../modals/confirm/confirm.component';
 
 @Component({
   selector: 'app-hero-list',
@@ -67,6 +68,18 @@ export class HeroListComponent implements OnInit {
         this.getHeroes();
       }
     });
+  }
+
+  confirmDelete = (hero: IHero) => {
+    const dialogRef = this.dialog.open(ConfirmModalComponent, {
+      width: '350px',
+      data: hero,
+    });
+
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.deleteSuperhero(hero);
+    }});
   }
 
   deleteSuperhero = (hero: IHero) => {

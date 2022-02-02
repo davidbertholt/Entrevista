@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 
 // Modal
-import { HeroModalComponent } from '../modal/modal.component';
+import { HeroModalComponent } from '../modals/addEdit/modal.component';
 
 @Component({
   selector: 'app-add-superhero',

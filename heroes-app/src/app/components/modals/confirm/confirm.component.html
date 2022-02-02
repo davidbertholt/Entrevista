@@ -1,0 +1,7 @@
+<h1 md-dialog-title>Eliminar</h1>
+<div md-dialog-content>{{confirmMessage}}</div>
+<br>
+<div md-dialog-actions class="action-buttons">
+  <button mat-raised-button color="primary" type="submit" (click)="close(true)">Confirmar</button>
+  <button mat-raised-button color="warn" (click)="close(false)">Cancelar</button>
+</div>

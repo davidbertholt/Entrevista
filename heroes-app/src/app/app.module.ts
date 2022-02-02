@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 // components
 import { AppComponent } from './app.component';
 import { AddSuperheroComponent } from './components/add-superhero/add-superhero.component';
+import { ConfirmModalComponent } from './components/modals/confirm/confirm.component';
 import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-import { HeroModalComponent } from './components/modal/modal.component';
+import { HeroModalComponent } from './components/modals/addEdit/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 
@@ -59,6 +60,7 @@ const test = [
   declarations: [
     AddSuperheroComponent,
     AppComponent,
+    ConfirmModalComponent,
     HeroDetailComponent,
     HeroListComponent,
     HeroModalComponent,
